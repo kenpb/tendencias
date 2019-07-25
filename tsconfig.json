@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "sourceMap": true,
+    "target": "es5",
+    "noImplicitAny": false,
+    "esModuleInterop": true, // https://github.com/parcel-bundler/parcel/pull/530#issuecomment-371783458
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "lib": [
+      "es6",
+      "es7",
+      "dom"
+    ],
+    "paths": { // doesn't actually work with parcel, just to quiet down the compiler and get IntelliSense
+      // check public/.aliasrc.js to view the actual aliases
+      "@decorators/*": [
+        "src/decorators/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build"
+  ]
+}

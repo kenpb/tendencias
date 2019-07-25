@@ -1,0 +1,24 @@
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: none;
+  stroke-width: 1.5px;
+}
+
+.text text {
+  pointer-events: none;
+  font: 12px sans-serif;
+}
+
+svg {
+  border: 1px solid #999
+}
+
+/* svg {
+  top: -40px;
+  left: -88px;
+  position: relative;
+} */
