@@ -1,5 +1,7 @@
 import { h, Component } from 'preact'
 
+import sidebarBackground from '../../assets/data-sidebar.png'
+
 // interface sidebarState {
 //   toggledMedias: boolean,
 //   toggledCategories: boolean
@@ -52,7 +54,8 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
     if (!medias || !categories) return (<p>cargando...</p>)
 
     return (
-      <div style={{ width: '20%', padding: '1rem .5rem' }}>
+      <div style={{ background: 'url(' + sidebarBackground + ')', backgroundRepeat: 'no-repeat', minHeight: '1486px', minWidth: '534px', backgroundPosition: 'right' }}>
+        <h1 style={{ textAlign: 'center', background: 'white', marginTop: '75px', fontWeight: '700', color: '#fdba00' }}>Filtros</h1>
         <div>
           <label onClick={this.toggleYears}>Años</label>
         </div>

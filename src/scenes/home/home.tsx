@@ -3,9 +3,24 @@ import { Link } from 'react-router-dom'
 
 import { BaseHeader, Footer } from '../../components'
 
-import logoCenat from '../../assets/logo-cenat.png'
-import logoCicom from '../../assets/logo-cicom.png'
-import logoLiit from '../../assets/logo-liit.png'
+import headerHero from '../../assets/home-hero.png'
+
+import tendenciaBackground from '../../assets/tendencia.png'
+import tendenciaAvatar from '../../assets/tendencia-avatar.png'
+import tendenciaButton from '../../assets/tendencia-button.png'
+
+import dataAvatar from '../../assets/data-avatar.png'
+import dataButton from '../../assets/data-button.png'
+
+import resourcesBackground from '../../assets/resources.png'
+import resourcesAvatar from '../../assets/resources-avatar.png'
+import resourcesButton from '../../assets/resources-button.png'
+
+// const heroStyle = {
+//   background: 'url(' + headerHero + ')',
+//   backgroundRepeat: 'no-repeat',
+//   backgroundPosition: 'right top',
+// }
 
 export class Home extends Component<{}, {}> {
 
@@ -15,40 +30,61 @@ export class Home extends Component<{}, {}> {
 
   render = () => (
     <div>
-      <BaseHeader>
-        <h3>Login</h3>
+      <BaseHeader backgroundUrl={headerHero}>
+        <div style={{ paddingTop: '31.250em', margin: '0 8em' }}>
+          <div style={{ maxWidth: '60%', }}>
+            <h2 style={{ fontWeight: 'normal', }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.</h2>
+          </div>
+          <h2 style={{ fontWeight: 'normal', }}> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam id nisi auctor, aliquam purus non, elementum odio. Praesent ullamcorper sapien et ante pretium vehicula. Pellentesque mollis nec eros sit amet bibendum. Suspendisse eget odio in lacus sodales mollis. Mauris dignissim scelerisque neque facilisis fringilla. Nam ipsum neque, consequat eu dolor vel, dignissim volutpat purus.</h2>
+        </div>
       </BaseHeader>
 
-      <div style={{ padding: '1rem 0' }}>
-        {/* <h1 style={{ textAlign: 'center' }}>Hero Image/Video Header?</h1> */}
-        <img src='https://via.placeholder.com/1140x350' alt='some hero image' style={{ 'width': '100%', height: '350px' }} />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit. Pellentesque feugiat leo sit amet aliquam pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam id nisi auctor, aliquam purus non, elementum odio. Praesent ullamcorper sapien et ante pretium vehicula. Pellentesque mollis nec eros sit amet bibendum. Suspendisse eget odio in lacus sodales mollis. Mauris dignissim scelerisque neque facilisis fringilla. Nam ipsum neque, consequat eu dolor vel, dignissim volutpat purus.</p>
-        <h3 style={{ 'padding-top': 0, 'color': 'rgba(0,0,0,.38)', 'text-align': 'center', marginTop: '2rem' }}>Una colaboración de</h3>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <img src={logoCenat} alt='logo-cenat' style={{ height: '85px', padding: '8px', marginRight: '1rem', verticalAlign: 'top' }} />
-          <img src={logoCicom} alt='logo-cicom' style={{ height: '100px', padding: '8px', verticalAlign: 'top' }} />
-          <img src={logoLiit} alt='logo-liit' style={{ height: '100px', padding: '8px', verticalAlign: 'top' }} />
+      {/* graph section */}
+      <div style={{ background: 'url(' + tendenciaBackground + ')', backgroundRepeat: 'no-repeat', minHeight: '35.375em', marginTop: '8em' }}>
+        <div style={{ margin: '0 8em', paddingTop: '6em', display: 'flex' }}>
+          <img src={tendenciaAvatar} alt=""/>
+          <Link to={'/graficos'} style={{ position: 'absolute', paddingLeft: '20em' }}>
+            <img src={tendenciaButton} alt=""/>
+          </Link>
+          <div style={{ maxWidth: '60%', paddingLeft: '5em', paddingTop: '5em', }}>
+            <h2 style={{ fontWeight: 'normal', }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
+            </h2>
+          </div>
         </div>
       </div>
 
-      <div style={{ padding: '1rem 0' }}>
-        <h1 style={{ textAlign: 'center' }}>Explorador de gráficos</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit. Pellentesque feugiat leo sit amet aliquam pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</p>
-        <Link to={'/graficos'}>Explorador de gráficos</Link>
+      {/* data section */}
+      <div>
+        <div style={{ margin: '0 8em', paddingTop: '6em', display: 'flex' }}>
+          <div style={{ maxWidth: '60%', paddingLeft: '5em', paddingTop: '5em', }}>
+            <h2 style={{ fontWeight: 'normal', }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
+            </h2>
+          </div>
+          <Link to={'/datos'} style={{ position: 'absolute', right: '32.55em' }}>
+            <img src={dataButton} alt=""/>
+          </Link>
+          <img src={dataAvatar} alt="" style={{ float: 'right' }}/>
+        </div>
       </div>
 
-      <div style={{ padding: '1rem 0' }}>
-        <h1 style={{ textAlign: 'center' }}>Explorador de datos</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit. Pellentesque feugiat leo sit amet aliquam pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</p>
-        <Link to={'/datos'}>Explorador de datos</Link>
+      {/* resources section */}
+      <div style={{ background: 'url(' + resourcesBackground + ')', backgroundRepeat: 'no-repeat', minHeight: '35.375em', marginTop: '8em' }}>
+        <div style={{ margin: '0 8em', paddingTop: '6em', display: 'flex' }}>
+          <img src={resourcesAvatar} alt=""/>
+          <Link to={'/recursos'} style={{ position: 'absolute', paddingLeft: '20em' }}>
+            <img src={resourcesButton} alt=""/>
+          </Link>
+          <div style={{ maxWidth: '60%', paddingLeft: '5em', paddingTop: '5em', }}>
+            <h2 style={{ fontWeight: 'normal', }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
+            </h2>
+          </div>
+        </div>
       </div>
 
-      <div style={{ padding: '1rem 0' }}>
-        <h1 style={{ textAlign: 'center' }}>Recursos educativos</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit. Pellentesque feugiat leo sit amet aliquam pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        <Link to={'/recursos'}>Recursos educativos</Link>
-      </div>
-
+      {/* footer section */}
       <Footer />
     </div>
   )

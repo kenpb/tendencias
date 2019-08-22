@@ -8,7 +8,8 @@ import { httpRequest } from '@decorators/httpRequest'
 // import { memoize } from '@decorators/memoize'
 
 import queryString from 'query-string'
-import withRouter from '@decorators/withRouter';
+import withRouter from '@decorators/withRouter'
+import config from '../../config'
 
 interface media {
   media_id: number,
@@ -63,25 +64,25 @@ interface postResponse {
 export class DataExplorer extends Component<any, any> {
 
   // @memoize()
-  @httpRequest('http://cluster.cenat.ac.cr:8081/Media/getMedia')
+  @httpRequest(`${config.catalogsURL}/Media/getMedia`)
   fetchMediaSources(response?: mediaResponse, error?: Object) {
     if (error) return alert(error)
 
-    const _allMedias = response.data.pop() // just popout the 100 entry 'todos'
+    response.data.pop() // just popout the 100 entry 'todos'
     this.setState({ medias: response.data })
 
     // this.setState({ medias: [allMedias, ...response.data] })
   }
 
   // @memoize()
-  @httpRequest('http://cluster.cenat.ac.cr:8081/category/getCategory')
+  @httpRequest(`${config.catalogsURL}/category/getCategory`)
   fetchCategories(response?: categoryResponse, error?: Object) {
     if (error) return alert(error)
     this.setState({ categories: response.data })
   }
 
   // @memoize()
-  @httpRequest('http://cluster.cenat.ac.cr:8082/getPostsPaginated')
+  @httpRequest(`${config.dataURL}/getPostsPaginated`)
   fetchPosts(_params?: any, response?: postResponse, error?: Object) {
     if (error) return alert(error)
     this.setState({
@@ -93,6 +94,8 @@ export class DataExplorer extends Component<any, any> {
 
   componentWillMount() {
     document.title = 'Tendencias | Explorar datos'
+
+    window.scrollTo(0, 0) // we just arrived, scroll to top before rendering
 
     // handling the dates but must ask first
     // const endDate = Math.floor(new Date(2017, 0, 1).getTime()/1000.0)
@@ -114,9 +117,16 @@ export class DataExplorer extends Component<any, any> {
 
   componentDidUpdate(prevProps) {
     if (this.props.location.search !== prevProps.location.search) {
+      // scroll to top on page/filter change
+      window.scrollTo(0, 0)
+      // empty the page
       this.setState({ posts: undefined })
+      // grab the parameters
       const query = queryString.parse(this.props.location.search)
-      if (query['pagenumber']) this.setState({ ...this.state, query: { ...this.state.query, pagenumber: Number.parseInt(query['pagenumber'] as string) } })
+      // set the parsed query to our state
+      if (query['pagenumber']) this.setState({ ...this.state, query: { ...this.state.query,pagenumber: Number.parseInt(query['pagenumber'] as string) } })
+
+      // refetch the data
       this.fetchPosts(this.state.query)
     }
   }
@@ -150,9 +160,8 @@ export class DataExplorer extends Component<any, any> {
   render = () => (
     <div>
       <BaseHeader />
-      <h1 style={{ textAlign: 'center' }}>Explorador de datos</h1>
       <Search onSearch={this.onSearch.bind(this)} currentSearch={this.state.query.text} />
-      <div style={{ display: 'flex', marginTop: '1rem' }}>
+      <div style={{ display: 'flex', marginTop: '1rem', minHeight: '100vh', }}>
         <Sidebar submitYears={this.onDateSet.bind(this)} submitMedia={this.onMediaSet.bind(this)} medias={this.state.medias} categories={this.state.categories} />
         <PostList posts={this.state.posts} currentPage={this.state.currentPage} totalPages={this.state.totalPages} />
       </div>

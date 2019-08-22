@@ -9,7 +9,7 @@ import { Resources } from './scenes/resources'
 const root = document.getElementById('root')
 
 render(
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router basename={process.env.PUBLIC_URL} >
     <Switch>
       <Route path="/" exact={true} component={Home} />
       <Route path="/datos" exact={true} component={DataExplorer} />

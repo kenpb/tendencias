@@ -10,10 +10,17 @@ export class PostDetail extends Component<{ toggled: boolean, post_published: st
 
   render = ({ toggled, post_published, post_link, shares_count_fb, reactions_count_fb }) => (
     <div onClick={this.preventPropagation} style={{ display: toggled ? 'block' : 'none', padding: '1rem' }}>
-      <small style={this.displayBlock}>Fecha de publicación: { post_published }</small>
-      <small style={this.displayBlock}>Cantidad de veces compartido en facebook: { shares_count_fb }</small>
-      <small style={this.displayBlock}>Cantidad de reacciones en facebook: { reactions_count_fb }</small>
-      <a href={ post_link }  target="_blank">Enlace original</a>
+      <div>
+        <small style={this.displayBlock}>Fecha de publicación: { post_published }</small>
+        <small style={this.displayBlock}>Cantidad de veces compartido en facebook: { shares_count_fb }</small>
+        <small style={this.displayBlock}>Cantidad de reacciones en facebook: { reactions_count_fb }</small>
+      </div>
+      <div>
+        <a href={ post_link }  target="_blank">Descargar comentarios</a>
+      </div>
+      <div>
+        <a href={ post_link }  target="_blank">Enlace original</a>
+      </div>
     </div>
   )
 }
