@@ -4,7 +4,7 @@
   "description": "An interface made with React for the MediaTIC project from the LIIT at the UNED Costa Rica.",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "rimraf build && cross-env PARCEL_AUTOINSTALL=false parcel ./public/index.html -d build --open",
+    "dev": "rimraf build && cross-env PARCEL_AUTOINSTALL=false parcel ./public/index.html -d build --open",
     "build:prod": "rimraf dist && cross-env PARCEL_AUTOINSTALL=false parcel build ./public/index.html --no-source-maps",
     "deploy:aws": "aws s3 sync dist/ s3://tendenciasdemo-app"
   },
