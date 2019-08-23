@@ -14,7 +14,7 @@ export class Post extends Component<{ post: Object }, any> {
   }
 
   render = ({ post }) => (
-    <div onClick={this.toggleDetails} style={{ padding: '.5rem 0' }}>
+    <div onClick={this.toggleDetails} style={{ margin: '.5rem', }}>
       <h4 style={{ margin: '.5em 0' }}><strong>{ post['name'] }</strong> - { post['post_message'] }</h4>
       <PostDetail toggled={this.state.detailsToggled} post_published={post['post_published']} post_link={post['post_link']} shares_count_fb={post['shares_count_fb']} reactions_count_fb={post['reactions_count_fb']} />
     </div>
