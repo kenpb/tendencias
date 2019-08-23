@@ -140,7 +140,7 @@ export class DataExplorer extends Component<any, any> {
   // mediaId is an array
   onMediaSet(mediaId) {
     if (mediaId.length == 0) delete this.state.query.medio
-    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(mediaId.length !== 0 && {medio: mediaId[0]}) } })
+    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(mediaId.length !== 0 && {medio: mediaId.join(',')}) } })
     this.props.history.push({ pathname: '/datos', search: queryString.stringify(this.state.query) })
   }
 

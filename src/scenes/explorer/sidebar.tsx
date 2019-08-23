@@ -1,6 +1,8 @@
 import { h, Component } from 'preact'
 
 import sidebarBackground from '../../assets/data-sidebar.png'
+import dataLabelIcon from '../../assets/data-label-icon.png'
+import dataApplyFilter from '../../assets/data-apply-filter.png'
 
 // interface sidebarState {
 //   toggledMedias: boolean,
@@ -54,55 +56,98 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
     if (!medias || !categories) return (<p>cargando...</p>)
 
     return (
-      <div style={{ background: 'url(' + sidebarBackground + ')', backgroundRepeat: 'no-repeat', minHeight: '1486px', minWidth: '534px', backgroundPosition: 'right' }}>
+      <div style={{ background: 'url(' + sidebarBackground + ')', backgroundRepeat: 'no-repeat', minHeight: '1486px', minWidth: '534px', backgroundPosition: 'right top' }}>
         <h1 style={{ textAlign: 'center', background: 'white', marginTop: '75px', fontWeight: '700', color: '#fdba00' }}>Filtros</h1>
+
+        {/* Years */}
         <div>
-          <label onClick={this.toggleYears}>Años</label>
+          <img src={dataLabelIcon} alt="" style={{ minWidth: '89px', paddingTop: '8px', }} />
+          <h2 style={{ display: 'inline-block', verticalAlign: 'top', margin: 0, marginLeft: '22px', fontWeight: 'bold', }}>Años</h2>
         </div>
-        <span style={{ display: this.state.toggledYears ? 'block' : 'none' }}>
+        <span style={{ maxWidth: '534px', display: 'block' }}>
           { [2014, 2015, 2016, 2017, 2018].map(year =>
-            <div>
-              <label>
+              <div style={{ display: 'inline-block' }}>
                 <input onChange={e => this.setYear(e, year)} type="checkbox" style={{ marginRight: '.5rem' }} />
-                <small>{year}</small>
-              </label>
-            </div>
+                <h3 style={{ display: 'inline-block', margin: 0, }}>{year}</h3>
+              </div>
           ) }
-          <div style={{ margin: '.5rem 0' }}>
-            <button onClick={e => submitYears(this.state.selectedYears)}>Aplicar</button>
+          <div style={{ margin: '.5rem 0', height: '86px', }}>
+            <button onClick={e => submitYears(this.state.selectedYears)} style={{
+              border: 'none',
+              font: 'inherit',
+              color: 'inherit',
+              backgroundColor: 'transparent',
+              cursor: 'pointer',
+              marginRight: '3em',
+              marginTop: '2em',
+              minWidth: '165px',
+              minHeight: '54px',
+              background: 'url(' + dataApplyFilter + ')',
+              backgroundRepeat: 'no-repeat',
+              float: 'right',
+            }}></button>
           </div>
         </span>
+
+        {/* Media */}
         <div>
-          <label onClick={this.toggleMedias}>Medios</label>
+          <img src={dataLabelIcon} alt="" style={{ minWidth: '89px', paddingTop: '8px', }} />
+          <h2 style={{ display: 'inline-block', verticalAlign: 'top', margin: 0, marginLeft: '22px', fontWeight: 'bold', }}>Medios</h2>
         </div>
-        <span style={{ display: this.state.toggledMedias ? 'block' : 'none' }}>
-          { medias.map((media) => <div>
-              <label style={{ width: '100%', display: 'flex' }}>
+        <span style={{ maxWidth: '534px', display: 'block' }}>
+          { medias.map((media) =>
+              <div style={{ display: 'inline-block' }}>
                 <input onChange={e => this.setMedia(e, media['facebook_id'])} type="checkbox" style={{ marginRight: '.5rem' }} />
-                <small>{media['name']}</small>
-              </label>
-            </div>) }
-          <div style={{ margin: '.5rem 0' }}>
-            <button onClick={e => submitMedia(this.state.selectedMedias)}>Aplicar</button>
+                <h3 style={{ display: 'inline-block', margin: 0, }}>{media['name']}</h3>
+              </div>) }
+          <div style={{ margin: '.5rem 0', height: '86px', }}>
+            <button onClick={e => submitMedia(this.state.selectedMedias)} style={{
+              border: 'none',
+              font: 'inherit',
+              color: 'inherit',
+              backgroundColor: 'transparent',
+              cursor: 'pointer',
+              marginRight: '3em',
+              marginTop: '2em',
+              minWidth: '165px',
+              minHeight: '54px',
+              background: 'url(' + dataApplyFilter + ')',
+              backgroundRepeat: 'no-repeat',
+              float: 'right',
+            }}></button>
           </div>
         </span>
+
+        {/* Category */}
         <div>
-          <label onClick={this.toggleCategories}>Categorias</label>
+          <img src={dataLabelIcon} alt="" style={{ minWidth: '89px', paddingTop: '8px', }} />
+          <h2 style={{ display: 'inline-block', verticalAlign: 'top', margin: 0, marginLeft: '22px', fontWeight: 'bold', }}>Categorías</h2>
         </div>
-        <span style={{ display: this.state.toggledCategories ? 'block' : 'none' }}>
+        <span style={{ maxWidth: '534px', display: 'block' }}>
           { categories.map(category => {
               return (
-                <div>
-                  <label>
-                    <input type="checkbox" style={{ marginRight: '.5rem' }} />
-                    <small>{category['category_name']}</small>
-                  </label>
+                <div style={{ display: 'inline-block' }}>
+                  <input type="checkbox" style={{ marginRight: '.5rem' }} />
+                  <h3 style={{ display: 'inline-block', margin: 0, }}>{category['category_name']}</h3>
                 </div>
               )}
             )
           }
-          <div style={{ margin: '.5rem 0' }}>
-            <button>Aplicar</button>
+          <div style={{ margin: '.5rem 0', height: '86px', }}>
+            <button style={{
+              border: 'none',
+              font: 'inherit',
+              color: 'inherit',
+              backgroundColor: 'transparent',
+              cursor: 'pointer',
+              marginRight: '3em',
+              marginTop: '2em',
+              minWidth: '165px',
+              minHeight: '54px',
+              background: 'url(' + dataApplyFilter + ')',
+              backgroundRepeat: 'no-repeat',
+              float: 'right',
+            }}></button>
           </div>
         </span>
       </div>)

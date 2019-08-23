@@ -16,7 +16,7 @@ export class PostListPagination extends Component<any /*{ history?: any, current
 
   render({ currentPage, totalPages }) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'right' }}>
+      <div style={{ display: 'flex', justifyContent: 'right', marginTop: '1em', }}>
         Página { currentPage } de { Number.parseInt(totalPages) === 0 ? 1 : totalPages }
 
         <span style={Number.parseInt(currentPage) != 1 ? this.linkStyle : this.disabledLinkStyle}>
