@@ -1,0 +1,62 @@
+<svg width="365mm" height="47.89mm" version="1.1" viewBox="0 0 365 47.89" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="clipPath2774">
+   <path d="m0 0h1040v135.75h-1040z"/>
+  </clipPath>
+  <linearGradient id="linearGradient2784" x2="1" gradientTransform="matrix(1181.7 188.05 188.05 -1181.7 -125.26 -41.756)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00baf0" offset="0"/>
+   <stop stop-color="#00569f" offset="1"/>
+  </linearGradient>
+  <clipPath id="clipPath2802">
+   <path d="m-39.328 121.89h1138.5v-153.92h-1138.5z"/>
+  </clipPath>
+  <clipPath id="clipPath2806">
+   <path d="m1099.1-32.035h-1138.5v153.92h1138.5z"/>
+  </clipPath>
+  <linearGradient id="linearGradient2816" x2="1" gradientTransform="matrix(1181.7 188.05 188.05 -1181.7 -101.93 -55.618)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00569f" offset="0"/>
+   <stop stop-color="#00569f" offset=".031291"/>
+   <stop stop-color="#fed669" offset=".62277"/>
+   <stop stop-color="#fed669" offset="1"/>
+  </linearGradient>
+  <clipPath id="clipPath2838">
+   <path d="m-62.667 115.22h1127.6v-153.92h-1127.6z"/>
+  </clipPath>
+  <clipPath id="clipPath2842">
+   <path d="m1064.9-38.697h-1127.6v153.92h1127.6z"/>
+  </clipPath>
+  <linearGradient id="linearGradient2852" x2="1" gradientTransform="matrix(1141.7 411.51 411.51 -1141.7 -57.985 -163.26)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00569f" offset="0"/>
+   <stop stop-color="#00569f" offset=".031291"/>
+   <stop stop-color="#fed669" offset=".62277"/>
+   <stop stop-color="#fed669" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(54.592 -110.95)">
+  <g transform="matrix(.35278 0 0 -.35278 -54.592 158.84)">
+   <g clip-path="url(#clipPath2774)">
+    <path d="m0 0h1040v135.75h-1040z" fill="url(#linearGradient2784)"/>
+   </g>
+   <g transform="matrix(.91352 0 0 .79188 35.927 25.368)">
+    <g clip-path="url(#clipPath2802)" opacity=".3">
+     <g clip-path="url(#clipPath2806)">
+      <path d="m1099.1-32.035h-1138.5v153.92h1138.5z" fill="url(#linearGradient2816)"/>
+     </g>
+    </g>
+   </g>
+   <g transform="matrix(.92233 0 0 .74859 57.8 28.968)">
+    <g clip-path="url(#clipPath2838)" opacity=".3">
+     <g clip-path="url(#clipPath2842)">
+      <path d="m1064.9-38.697h-1127.6v153.92h1127.6z" fill="url(#linearGradient2852)"/>
+     </g>
+    </g>
+   </g>
+   <text transform="matrix(1 0 0 -1 461.81 50.772)" fill="#ffffff" font-family="'Myriad Pro Light'" font-size="25.107px" font-weight="300">
+    <tspan x="0 12.176895 25.634247 31.132681 42.330402 55.687325 61.01001 72.408585 86.267654 99.624573 107.03114 118.42972 129.62744 134.8748 148.23174 161.68909" y="0">en colaboración</tspan>
+   </text>
+   <g transform="translate(652.39 100.63)">
+    <path d="m0 0v-82.562" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4"/>
+   </g>
+  </g>
+ </g>
+</svg>

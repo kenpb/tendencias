@@ -11,8 +11,8 @@ export class Search extends Component<{ onSearch: Function, currentSearch: strin
 
   render = ({ onSearch }) => (
     <div style={{ display: 'flex', justifyContent: 'center', margin: '5em', }}>
-      <div style={{ minWidth: '1366px', }}>
-        <form onSubmit={e => e.preventDefault()} style={{ display: 'flex', padding: 0, backgroundColor: '#9d9d9c', borderRadius: '25px', }}>
+      <div style={{ minWidth: '1200px', }}>
+        <form onSubmit={e => e.preventDefault()} style={{ display: 'flex', padding: 0, backgroundColor: '#74afbf', borderRadius: '25px', }}>
           <button onClick={e => onSearch(this.state['searchValue'])} style={{
             border: 'none',
             font: 'inherit',
@@ -33,7 +33,7 @@ export class Search extends Component<{ onSearch: Function, currentSearch: strin
             fontSize: '2rem',
             fontWeight: 'bold',
             padding: '.3em',
-            color: '#ffd948',
+            color: '#fff',
           }} placeholder="Buscar..." type="text" />
         </form>
       </div>

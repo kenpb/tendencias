@@ -10,7 +10,7 @@ export class PostList extends Component<{ posts: Object, currentPage: number, to
     if (posts && posts.length == 0) return (<p>No hay resultados</p>)
 
     return (
-    <div style={{ width: '60%', padding: '1rem 8rem' }}>
+    <div style={{ width: '60%', padding: '1rem' }}>
       { posts.map(post => <Post post={post} />)}
       <PostListPagination currentPage={currentPage} totalPages={totalPages} />
     </div>)
