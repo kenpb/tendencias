@@ -11,16 +11,69 @@ body {
   // padding: 0 2rem;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   color: #fff;
 }
-::-moz-placeholder { /* Firefox 19+ */
+
+::-moz-placeholder {
+  /* Firefox 19+ */
   color: #fff;
   opacity: 1;
 }
-:-ms-input-placeholder { /* IE 10+ */
+
+:-ms-input-placeholder {
+  /* IE 10+ */
   color: #fff;
 }
-:-moz-placeholder { /* Firefox 18- */
+
+:-moz-placeholder {
+  /* Firefox 18- */
   color: #fff;
+}
+
+.findings {
+  background: #d7effc;
+}
+
+.findings-wrapper::before {
+  display: block;
+  content: ' ';
+  background-image: url('../assets/bckg-top.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 125px;
+}
+
+.findings-wrapper::after {
+  display: block;
+  content: ' ';
+  background-image: url('../assets/bckg-bot.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 170px;
+}
+
+.data {
+  background: #d7effc;
+}
+
+.data-wrapper::before {
+  display: block;
+  content: ' ';
+  background-image: url('../assets/bckg-top.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 125px;
+  transform: scaleX(-1)
+}
+
+.data-wrapper::after {
+  display: block;
+  content: ' ';
+  background-image: url('../assets/bckg-bot.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 170px;
+  transform: scaleX(-1)
 }

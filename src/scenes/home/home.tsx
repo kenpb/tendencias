@@ -36,17 +36,19 @@ export class Home extends Component<{}, {}> {
       </BaseHeader>
 
       {/* findings section */}
-      <div style={{ background: 'url(' + background + ')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', minHeight: '35.375em', marginTop: '8em' }}>
-        <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '10em 0', display: 'flex' }}>
-          <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
-            <Link to={'/graficos'}>
-              <img src={hallazgosButton} alt="" style={{ width: '50%', }}/>
-            </Link>
-            <h3 style={{ fontWeight: 'normal', float: 'left', }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
-            </h3>
+      <div class="findings-wrapper" style={{ marginTop: '8em' }}>
+        <div class="findings">
+          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0 2.5em', display: 'flex' }}>
+            <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
+              <Link to={'/graficos'}>
+                <img src={hallazgosButton} alt="" style={{ width: '50%', }}/>
+              </Link>
+              <h3 style={{ fontWeight: 'normal', float: 'left', }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
+              </h3>
+            </div>
+            <img src={hallazgosAvatar} alt=""/>
           </div>
-          <img src={hallazgosAvatar} alt=""/>
         </div>
       </div>
 
@@ -66,17 +68,19 @@ export class Home extends Component<{}, {}> {
       </div>
 
       {/* data section */}
-      <div style={{ background: 'url(' + background + ')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', minHeight: '35.375em', marginTop: '8em' }}>
-        <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '10em 0', display: 'flex' }}>
-          <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
-            <Link to={'/datos'}>
-              <img src={dataButton} alt="" style={{ width: '50%', }}/>
-            </Link>
-            <h3 style={{ fontWeight: 'normal', }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
-            </h3>
+      <div class="data-wrapper" style={{ marginTop: '6em' }}>
+        <div class="data">
+          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '10em 0', display: 'flex' }}>
+            <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
+              <Link to={'/datos'}>
+                <img src={dataButton} alt="" style={{ width: '50%', }}/>
+              </Link>
+              <h3 style={{ fontWeight: 'normal', }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
+              </h3>
+            </div>
+            <img src={dataAvatar} alt="" style={{ transform: 'scaleX(-1)' }}/>
           </div>
-          <img src={dataAvatar} alt="" style={{ transform: 'scaleX(-1)' }}/>
         </div>
       </div>
 
