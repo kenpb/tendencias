@@ -1,0 +1,10 @@
+<svg width="67.238mm" height="30.557mm" version="1.1" viewBox="0 0 67.238 30.557" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(-53.316 -21.674)">
+  <text x="52.615002" y="40.420891" fill="#ffffff" font-family="'Myriad Pro Light'" font-size="8.8572px" font-weight="300" stroke-width=".35278">
+   <tspan x="52.615002 56.910755 61.658245 63.597988 67.548317 72.260361 74.138107 78.159286 83.048492 87.760544 90.373444 94.394623 98.344955 100.19612 104.90818 109.65567" y="40.420891" stroke-width=".35278">en colaboración</tspan>
+  </text>
+  <g transform="matrix(.35278 0 0 -.35278 119.85 22.389)">
+   <path d="m0 0v-82.562" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4"/>
+  </g>
+ </g>
+</svg>

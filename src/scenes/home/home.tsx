@@ -28,73 +28,73 @@ export class Home extends Component<{}, {}> {
     <div>
       <BaseHeader backgroundUrl={headerHero}>
         <div style={{ paddingTop: '10em', margin: '0 auto', maxWidth: '1200px', }}>
-          <div style={{ maxWidth: '50%', }}>
-            <h3 style={{ fontWeight: 'normal', }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.</h3>
+          <div style={{ maxWidth: '70%', }}>
+            <h2 style={{ fontWeight: 'normal', }}> Les damos la bienvenida a Tendencias, un espacio para observar las dinámicas de las personas alrededor de medios de comunicación en línea en Costa Rica.</h2>
           </div>
-          {/* <h3 style={{ fontWeight: 'normal', }}> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam id nisi auctor, aliquam purus non, elementum odio. Praesent ullamcorper sapien et ante pretium vehicula. Pellentesque mollis nec eros sit amet bibendum. Suspendisse eget odio in lacus sodales mollis. Mauris dignissim scelerisque neque facilisis fringilla. Nam ipsum neque, consequat eu dolor vel, dignissim volutpat purus.</h3> */}
+          {/* <h2 style={{ fontWeight: 'normal', }}> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam id nisi auctor, aliquam purus non, elementum odio. Praesent ullamcorper sapien et ante pretium vehicula. Pellentesque mollis nec eros sit amet bibendum. Suspendisse eget odio in lacus sodales mollis. Mauris dignissim scelerisque neque facilisis fringilla. Nam ipsum neque, consequat eu dolor vel, dignissim volutpat purus.</h2> */}
         </div>
       </BaseHeader>
 
       {/* findings section */}
-      <div class="findings-wrapper" style={{ marginTop: '8em' }}>
+      <div class="findings-wrapper" style={{ marginTop: '0em' }}>
         <div class="findings">
-          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0 2.5em', display: 'flex' }}>
+          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0 2.5em', display: 'flex', justifyContent: 'center', }}>
             <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
               <Link to={'/graficos'}>
                 <img src={hallazgosButton} alt="" style={{ width: '50%', }}/>
               </Link>
-              <h3 style={{ fontWeight: 'normal', float: 'left', }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
-              </h3>
+              <h2 style={{ fontWeight: 'normal', float: 'left', }}>
+                Mostramos diversos hallazgos realizados por el grupo de investigación con el fin de aportar al conocimiento de esta área en el contexto costarricense.
+              </h2>
             </div>
-            <img src={hallazgosAvatar} alt=""/>
+            <img src={hallazgosAvatar} alt="" style={{ height: '250px', }} />
           </div>
         </div>
       </div>
 
       {/* graph section */}
       <div>
-        <div style={{ margin: '0 auto', maxWidth: '1200px', paddingTop: '6em', display: 'flex' }}>
-          <img src={visualizacionesAvatar} style={{ transform: 'scaleX(-1)' }} alt=""/>
+        <div style={{ margin: '0 auto', maxWidth: '1200px', paddingTop: '3em', display: 'flex', justifyContent: 'center', }}>
+          <img src={visualizacionesAvatar} style={{ transform: 'scaleX(-1)', height: '250px', }} alt=""/>
           <div style={{ maxWidth: '60%', paddingLeft: '5em' }}>
-            <Link to={'/graficos'} style={{ width: '100%', display: 'inline-block' }}>
-              <img src={visualizacionesButton} alt="" style={{ width: '50%', float: 'right', }}/>
+            <Link to={'/graficos'} style={{ width: '50%',  marginLeft: '50%', display: 'inline-block' }}>
+              <img src={visualizacionesButton} alt="" style={{ float: 'right', }}/>
             </Link>
-            <h3 style={{ fontWeight: 'normal', }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
-            </h3>
+            <h2 style={{ fontWeight: 'normal', }}>
+              Presentamos de forma gráfica e interactiva las dinámicas en torno a los medios de comunicación en línea.
+            </h2>
           </div>
         </div>
       </div>
 
       {/* data section */}
-      <div class="data-wrapper" style={{ marginTop: '6em' }}>
+      <div class="data-wrapper" style={{ marginTop: '3em' }}>
         <div class="data">
-          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '10em 0', display: 'flex' }}>
+          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0px 2.5em', display: 'flex', justifyContent: 'center', }}>
             <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
               <Link to={'/datos'}>
                 <img src={dataButton} alt="" style={{ width: '50%', }}/>
               </Link>
-              <h3 style={{ fontWeight: 'normal', }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
-              </h3>
+              <h2 style={{ fontWeight: 'normal', }}>
+                Brindamos acceso a los datos recopilados por el proyecto para incentivar nuevas iniciativas de investigación en el campo.
+              </h2>
             </div>
-            <img src={dataAvatar} alt="" style={{ transform: 'scaleX(-1)' }}/>
+            <img src={dataAvatar} alt="" style={{ transform: 'scaleX(-1)', height: '250px', }}/>
           </div>
         </div>
       </div>
 
       {/* resources section */}
       <div>
-        <div style={{ margin: '0 auto', maxWidth: '1200px', paddingTop: '6em', display: 'flex' }}>
-          <img src={resourcesAvatar} alt=""/>
+        <div style={{ margin: '0 auto', maxWidth: '1200px', display: 'flex', paddingTop: '2rem', justifyContent: 'center', }}>
+          <img src={resourcesAvatar} alt="" style={{ height: '250px', }} />
           <div style={{ maxWidth: '60%', paddingLeft: '5em' }}>
-            <Link to={'/recursos'} style={{ width: '100%', display: 'inline-block', }}>
-              <img src={resourcesButton} alt="" style={{ width: '50%', float: 'right', }}/>
+            <Link to={'/recursos'} style={{ marginLeft: '50%', width: '50%', display: 'inline-block', }}>
+              <img src={resourcesButton} alt=""/>
             </Link>
-            <h3 style={{ fontWeight: 'normal' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce suscipit felis et turpis fermentum, interdum lobortis ex eleifend. Nulla vulputate rutrum ante sed blandit. Nunc vel lectus quis sapien laoreet laoreet ut ac sem. Quisque lacus orci, vehicula sit amet arcu sit amet, dignissim pellentesque elit.
-            </h3>
+            <h2 style={{ fontWeight: 'normal' }}>
+              Ofrecemos una serie de recursos educativos abiertos para que la ciudadanía se acerque a la temática y pueda conocer más al respecto del tema.
+            </h2>
           </div>
         </div>
       </div>
