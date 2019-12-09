@@ -27,7 +27,7 @@ export class Home extends Component<{}, {}> {
   render = () => (
     <div>
       <BaseHeader backgroundUrl={headerHero}>
-        <div style={{ paddingTop: '10em', margin: '0 auto', maxWidth: '1200px', }}>
+        <div style={{ padding: '10em 10px 0 10px', margin: '0 auto', maxWidth: '1200px', }}>
           <div style={{ maxWidth: '70%', }}>
             <h2 style={{ fontWeight: 'normal', }}> Les damos la bienvenida a Tendencias, un espacio para observar las dinámicas de las personas alrededor de medios de comunicación en línea en Costa Rica.</h2>
           </div>
@@ -37,11 +37,11 @@ export class Home extends Component<{}, {}> {
 
       {/* findings section */}
       <div class="findings-wrapper" style={{ marginTop: '0em' }}>
-        <div class="findings">
+        <div class="findings" style={{ padding: '0 10px' }}>
           <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0 2.5em', display: 'flex', justifyContent: 'center', }}>
             <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
               <Link to={'/graficos'}>
-                <img src={hallazgosButton} alt="" style={{ width: '50%', }}/>
+                <img src={hallazgosButton} alt="" style={{  }}/>
               </Link>
               <h2 style={{ fontWeight: 'normal', float: 'left', }}>
                 Mostramos diversos hallazgos realizados por el grupo de investigación con el fin de aportar al conocimiento de esta área en el contexto costarricense.
@@ -53,7 +53,7 @@ export class Home extends Component<{}, {}> {
       </div>
 
       {/* graph section */}
-      <div>
+      <div style={{ padding: '0 10px' }}>
         <div style={{ margin: '0 auto', maxWidth: '1200px', paddingTop: '3em', display: 'flex', justifyContent: 'center', }}>
           <img src={visualizacionesAvatar} style={{ transform: 'scaleX(-1)', height: '250px', }} alt=""/>
           <div style={{ maxWidth: '60%', paddingLeft: '5em' }}>
@@ -69,11 +69,11 @@ export class Home extends Component<{}, {}> {
 
       {/* data section */}
       <div class="data-wrapper" style={{ marginTop: '3em' }}>
-        <div class="data">
+        <div class="data" style={{ padding: '0 10px' }}>
           <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0px 2.5em', display: 'flex', justifyContent: 'center', }}>
-            <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
+            <div style={{ maxWidth: '60%' }}>
               <Link to={'/datos'}>
-                <img src={dataButton} alt="" style={{ width: '50%', }}/>
+                <img src={dataButton} alt="" style={{  }}/>
               </Link>
               <h2 style={{ fontWeight: 'normal', }}>
                 Brindamos acceso a los datos recopilados por el proyecto para incentivar nuevas iniciativas de investigación en el campo.
@@ -85,12 +85,12 @@ export class Home extends Component<{}, {}> {
       </div>
 
       {/* resources section */}
-      <div>
+      <div style={{ padding: '0 10px' }}>
         <div style={{ margin: '0 auto', maxWidth: '1200px', display: 'flex', paddingTop: '2rem', justifyContent: 'center', }}>
           <img src={resourcesAvatar} alt="" style={{ height: '250px', }} />
           <div style={{ maxWidth: '60%', paddingLeft: '5em' }}>
-            <Link to={'/recursos'} style={{ marginLeft: '50%', width: '50%', display: 'inline-block', }}>
-              <img src={resourcesButton} alt=""/>
+            <Link to={'/recursos'} style={{ marginLeft: '50%', width: '50%', display: 'inline-block', float: '' }}>
+              <img src={resourcesButton} alt="" style={{ float: 'right', }}/>
             </Link>
             <h2 style={{ fontWeight: 'normal' }}>
               Ofrecemos una serie de recursos educativos abiertos para que la ciudadanía se acerque a la temática y pueda conocer más al respecto del tema.
