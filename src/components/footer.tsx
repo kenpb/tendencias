@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { Link } from 'react-router-dom'
 
 import logoCenat from '../assets/logo-cenat.png'
 import logoCicom from '../assets/logo-cicom.svg'
@@ -24,16 +23,16 @@ export class Footer extends Component<{}, {}> {
       <div style={{ display: 'flex', alignItems: 'center', margin: '0 10px' }}>
         <img style={{ height: '100px', margin: '0 10px', }} src={colab} alt="" />
 
-        <Link to={"http://cicom.eccc.ucr.ac.cr/"} style={{ textDecoration: 'none', }}>
+        <a href={"http://cicom.eccc.ucr.ac.cr/"} style={{ textDecoration: 'none', }}>
           <img style={{ height: '100px', margin: '0 15px', }} src={logoCicom} alt="" />
-        </Link>
+        </a>
 
-        <Link to={"https://investiga.uned.ac.cr/liit/"} style={{ textDecoration: 'none', }}>
+        <a href={"https://investiga.uned.ac.cr/liit/"} style={{ textDecoration: 'none', }}>
           <img style={{ height: '80px', margin: '0 15px', }} src={logoLiit} alt="" />
-        </Link>
-        <Link to={"http://www.cenat.ac.cr/en/"} style={{ textDecoration: 'none', }}>
+        </a>
+        <a href={"http://www.cenat.ac.cr/en/"} style={{ textDecoration: 'none', }}>
           <img style={{ height: '100px', margin: '0 15px', }} src={logoCenat} alt="" />
-        </Link>
+        </a>
       </div>
     </div>
   )

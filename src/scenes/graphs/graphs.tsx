@@ -12,13 +12,16 @@ export class Graphs extends Component<any, {}> {
   render() {
     return (
       <div>
-        <BaseHeader />
+        <BaseHeader minHeight={'100px'} />
 
         <h1 style="text-align: center;">Explorador de gráficos</h1>
 
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Visualization width={500} height={250} />
           <Visualization width={500} height={250} />
+        </div> */}
+        <div style={{ margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '90%', height: '100vh' }} src="https://acespedesv.shinyapps.io/mediatic22/"></iframe>
         </div>
       </div>
     )
