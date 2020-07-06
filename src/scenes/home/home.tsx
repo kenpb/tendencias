@@ -18,6 +18,8 @@ import dataButton from '../../assets/data-button.svg'
 import resourcesAvatar from '../../assets/resources-avatar.svg'
 import resourcesButton from '../../assets/resources-button.svg'
 
+import './home.scss'
+
 export class Home extends Component<{}, {}> {
 
   componentDidMount() {
@@ -36,12 +38,12 @@ export class Home extends Component<{}, {}> {
       </BaseHeader>
 
       {/* findings section */}
-      <div class="findings-wrapper" style={{ marginTop: '0em' }}>
-        <div class="findings" style={{ padding: '0 10px' }}>
-          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0 2.5em', display: 'flex', justifyContent: 'center', }}>
-            <div style={{ maxWidth: '60%', paddingRight: '5em' }}>
+      <div class="findings-section">
+        <div style={{ padding: '0 10px', background: '#d7effc' }}>
+          <div class="findings-wrapper">
+            <div class="findings-content">
               <Link to={'/graficos'}>
-                <img src={hallazgosButton} alt="" style={{  }}/>
+                <img src={hallazgosButton} alt=""/>
               </Link>
               <h2 style={{ fontWeight: 'normal', float: 'left', }}>
                 Mostramos diversos hallazgos realizados por el grupo de investigación con el fin de aportar al conocimiento de esta área en el contexto costarricense.
@@ -54,11 +56,11 @@ export class Home extends Component<{}, {}> {
 
       {/* graph section */}
       <div style={{ padding: '0 10px' }}>
-        <div style={{ margin: '0 auto', maxWidth: '1200px', paddingTop: '3em', display: 'flex', justifyContent: 'center', }}>
+        <div class="graph-section">
           <img src={visualizacionesAvatar} style={{ transform: 'scaleX(-1)', height: '250px', }} alt=""/>
-          <div style={{ maxWidth: '60%', paddingLeft: '5em' }}>
-            <Link to={'/graficos'} style={{ width: '50%',  marginLeft: '50%', display: 'inline-block' }}>
-              <img src={visualizacionesButton} alt="" style={{ float: 'right', }}/>
+          <div class="graph-content">
+            <Link to={'/graficos'} class="cta">
+              <img src={visualizacionesButton} alt=""/>
             </Link>
             <h2 style={{ fontWeight: 'normal', }}>
               Presentamos de forma gráfica e interactiva las dinámicas en torno a los medios de comunicación en línea.
@@ -68,12 +70,12 @@ export class Home extends Component<{}, {}> {
       </div>
 
       {/* data section */}
-      <div class="data-wrapper" style={{ marginTop: '3em' }}>
-        <div class="data" style={{ padding: '0 10px' }}>
-          <div style={{ margin: '0 auto', maxWidth: '1200px', padding: '6em 0px 2.5em', display: 'flex', justifyContent: 'center', }}>
-            <div style={{ maxWidth: '60%' }}>
+      <div class="data-section">
+        <div style={{ background: '#d7effc', padding: '0 10px' }}>
+          <div class="data-wrapper">
+            <div class="data-content">
               <Link to={'/datos'}>
-                <img src={dataButton} alt="" style={{  }}/>
+                <img src={dataButton} alt=""/>
               </Link>
               <h2 style={{ fontWeight: 'normal', }}>
                 Brindamos acceso a los datos recopilados por el proyecto para incentivar nuevas iniciativas de investigación en el campo.
@@ -86,10 +88,10 @@ export class Home extends Component<{}, {}> {
 
       {/* resources section */}
       <div style={{ padding: '0 10px' }}>
-        <div style={{ margin: '0 auto', maxWidth: '1200px', display: 'flex', paddingTop: '2rem', justifyContent: 'center', }}>
+        <div class="resources-section">
           <img src={resourcesAvatar} alt="" style={{ height: '250px', }} />
-          <div style={{ maxWidth: '60%', paddingLeft: '5em' }}>
-            <Link to={'/recursos'} style={{ marginLeft: '50%', width: '50%', display: 'inline-block', float: '' }}>
+          <div class="resources-content">
+            <Link to={'/recursos'} class="cta">
               <img src={resourcesButton} alt="" style={{ float: 'right', }}/>
             </Link>
             <h2 style={{ fontWeight: 'normal' }}>

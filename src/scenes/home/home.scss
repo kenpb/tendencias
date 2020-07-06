@@ -1,0 +1,168 @@
+h2 {
+  text-align: justify;
+}
+
+//////////////////////////////////////////////////////////////////
+
+.findings-wrapper,
+.data-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 6em 0 2.5em;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (min-width: 800px) and (orientation: landscape) {
+    padding: 0 1em;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 800px) {
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    padding: 0;
+
+    img {
+      padding: 1rem 0;
+      max-width: 250px;
+    }
+  }
+}
+
+.findings-content,
+.data-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: 800px) and (orientation: landscape) {
+    padding-right: 2.5em;
+  }
+
+  @media only screen and (max-width: 800px) {
+    h2 {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+
+  @media only screen and (min-width: 1040px) {
+    max-width: 60%;
+    display: block;
+    padding-right: 5em;
+  }
+}
+
+.findings-section::before {
+  display: block;
+  content: ' ';
+  background-image: url('../../assets/bckg-top.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 125px;
+}
+
+.findings-section::after {
+  display: block;
+  content: ' ';
+  background-image: url('../../assets/bckg-bot.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 170px;
+}
+
+//////////////////////////////////////////////////////////////////
+
+.graph-section,
+.resources-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (min-width: 800px) and (orientation: landscape) {
+    padding: 0 1em;
+  }
+
+  @media only screen and (max-width: 800px) {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+
+    img {
+      padding: 1rem 0;
+      max-width: 250px;
+    }
+  }
+
+  .cta {
+    @media only screen and (min-width: 1040px) {
+      width: 50%;
+      margin-left: 50%;
+      display: inline-block;
+
+      img {
+        float: right
+      }
+    }
+  }
+}
+
+.graph-content,
+.resources-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (max-width: 800px) {
+    h2 {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+
+  @media only screen and (min-width: 1040px) {
+    max-width: 60%;
+    display: block;
+    padding-left: 5em;
+  }
+
+  @media only screen and (min-width: 800px) and (orientation: landscape) {
+    padding-left: 2.5em;
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+
+.data-section {
+  @media only screen and (min-width: 800px) and (orientation: landscape) {
+    margin-top: 0;
+  }
+}
+
+.data-wrapper {
+  @media only screen and (min-width: 800px) and (orientation: landscape) {
+    padding-top: 2rem;
+  }
+}
+
+.data-section::before {
+  display: block;
+  content: ' ';
+  background-image: url('../../assets/bckg-top.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 125px;
+  transform: scaleX(-1)
+}
+
+.data-section::after {
+  display: block;
+  content: ' ';
+  background-image: url('../../assets/bckg-bot.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 170px;
+  transform: scaleX(-1)
+}
