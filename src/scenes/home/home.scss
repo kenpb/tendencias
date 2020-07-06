@@ -135,13 +135,13 @@ h2 {
 
 //////////////////////////////////////////////////////////////////
 
-.data-section {
+.findings-wrapper, .data-wrapper {
   @media only screen and (min-width: 800px) and (orientation: landscape) {
     margin-top: 0;
   }
 }
 
-.data-wrapper {
+.findings-wrapper, .data-wrapper {
   @media only screen and (min-width: 800px) and (orientation: landscape) {
     padding-top: 2rem;
   }
