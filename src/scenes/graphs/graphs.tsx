@@ -20,7 +20,7 @@ export class Graphs extends Component<any, {}> {
           <Visualization width={500} height={250} />
           <Visualization width={500} height={250} />
         </div> */}
-        <div style={{ maxWidth: '1040px', margin: '0 auto', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', }}>
+        <div style={{ margin: '0 auto', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '0 10px' }}>
           <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/lectura/"></iframe>
           <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/nube/"></iframe>
           <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/mapa/"></iframe>
