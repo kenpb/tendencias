@@ -20,12 +20,12 @@ export class Graphs extends Component<any, {}> {
           <Visualization width={500} height={250} />
           <Visualization width={500} height={250} />
         </div> */}
-        <div style={{ maxWidth: '1040px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
-          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '90%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/lectura/"></iframe>
-          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '90%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/nube/"></iframe>
-          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '90%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/mapa/"></iframe>
-          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '90%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/serieA/"></iframe>
-          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '90%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/serieB/"></iframe>
+        <div style={{ maxWidth: '1040px', margin: '0 auto', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', }}>
+          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/lectura/"></iframe>
+          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/nube/"></iframe>
+          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/mapa/"></iframe>
+          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/serieA/"></iframe>
+          <iframe style={{ borderColor: 'transparent', margin: '0 20px', width: '25%', height: '80vh' }} src="http://tendencias.cenat.ac.cr:8787/mediatic/serieB/"></iframe>
         </div>
 
         {/* footer section */}
