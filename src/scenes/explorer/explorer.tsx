@@ -161,7 +161,7 @@ export class DataExplorer extends Component<any, any> {
     <div>
       <BaseHeader minHeight={'100px'}/>
       <Search onSearch={this.onSearch.bind(this)} currentSearch={this.state.query.text} />
-      <div style={{ display: 'flex', marginTop: '1rem', minHeight: '100vh', }}>
+      <div style={{ display: 'flex', marginTop: '1rem', minHeight: '80vh', }}>
         <Sidebar submitYears={this.onDateSet.bind(this)} submitMedia={this.onMediaSet.bind(this)} medias={this.state.medias} categories={this.state.categories} />
         <PostList posts={this.state.posts} currentPage={this.state.currentPage} totalPages={this.state.totalPages} />
       </div>

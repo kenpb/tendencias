@@ -1,5 +1,7 @@
 import { h, Component } from 'preact'
 
+import './search.scss'
+
 export class Search extends Component<{ onSearch: Function, currentSearch: string }, { searchValue: string }> {
   componentDidMount() {
     this.setState({ searchValue: this.props.currentSearch })
