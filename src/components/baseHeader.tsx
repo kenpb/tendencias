@@ -1,39 +1,30 @@
 import { h, Component } from 'preact'
 import { Link } from 'react-router-dom'
 
-import headerBackground from '../assets/header.png'
+import headerBackground from '../assets/home-hero.svg'
 import logo from '../assets/logo.svg'
 // import loginButton from '../assets/login-button.png'
 
+import './header.scss'
+
 export class BaseHeader extends Component<any, any> {
   render = (props, _state) => {
-    const backgroundURL = props.backgroundUrl || headerBackground
-    const minHeight = props.minHeight || '600px'
-
-    const styles = {
-      // display: 'flex',
-      // justifyContent: 'space-between',
-      background: 'url(' + backgroundURL + ')',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'right top',
-      backgroundSize: '80%',
-      minHeight,
-    }
 
     return (
-      <div style={styles}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '75%', float: 'right' }}>
-          <Link to={"/"}style={{ display: 'flex' }}>
-            <img src={logo} style={{ width: '150px' }} alt=""/>
+
+      <div className="header-wrapper">
+        <img className="background" src={headerBackground} />
+        <div className="navigation">
+          <Link to={"/"}style={{ zIndex: 1, display: 'flex', margin: '10px 0', }}>
+            <img src={logo} style={{ width: '150px', height: '30px', }} alt=""/>
           </Link>
 
-          <Link to={"/"} style={{ textDecoration: 'none', border: '.15em solid white', margin: '2em', borderRadius: '25px' }}>
-            {/* <img src={} alt=""/> */}
+          <Link to={"/"} style={{ zIndex: 1, textDecoration: 'none', margin: '10px 0', border: '.15em solid white', borderRadius: '25px', height: '30px', }}>
             <h2 style={{ color: 'white', margin: '0 .5em', fontSize: '1.2rem' }}>Iniciar Sesión</h2>
           </Link>
         </div>
-        {props.children}
       </div>
+
     )
   }
 }

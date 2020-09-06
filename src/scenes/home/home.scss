@@ -4,6 +4,49 @@ h2 {
 
 //////////////////////////////////////////////////////////////////
 
+.intro {
+  // padding: 0 10px 5em 10px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.text-wrapper {
+  max-width: 600px;
+  top: 200px;
+  position: absolute;
+
+  @media only screen and (min-width: 1300px) {
+    top: 300px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    position: initial;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding: 0 10px;
+
+    h2 {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 800px) and (orientation: landscape) {
+    padding: 0 10px;
+
+    h2 {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////
+
 .findings-wrapper,
 .data-wrapper {
   margin: 0 auto;
@@ -166,3 +209,5 @@ h2 {
   height: 170px;
   transform: scaleX(-1)
 }
+
+

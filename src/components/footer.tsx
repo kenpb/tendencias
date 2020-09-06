@@ -17,13 +17,14 @@ export class Footer extends Component<{}, {}> {
         <img class="logo-img" style={{ height: '100px', margin: '0 10px', }} src={colab} alt="" />
 
         <span class="logos-wrapper">
+          <a class="logo-img" href={"https://investiga.uned.ac.cr/liit/"} style={{ textDecoration: 'none', }}>
+            <img style={{ height: '80px', margin: '0 15px', }} src={logoLiit} alt="liit" />
+          </a>
+
           <a class="logo-img" href={"http://cicom.eccc.ucr.ac.cr/"} style={{ textDecoration: 'none', }}>
             <img style={{ height: '100px', margin: '0 15px', }} src={logoCicom} alt="cicom" />
           </a>
 
-          <a class="logo-img" href={"https://investiga.uned.ac.cr/liit/"} style={{ textDecoration: 'none', }}>
-            <img style={{ height: '80px', margin: '0 15px', }} src={logoLiit} alt="liit" />
-          </a>
           <a class="logo-img" href={"http://www.cenat.ac.cr/en/"} style={{ textDecoration: 'none', }}>
             <img style={{ height: '100px', margin: '0 15px', }} src={logoCenat} alt="cenat" />
           </a>

@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import { Link } from 'react-router-dom'
 
 import { BaseHeader, Footer } from '../../components'
 import { Sidebar } from './sidebar'
@@ -10,6 +11,11 @@ import { httpRequest } from '@decorators/httpRequest'
 import queryString from 'query-string'
 import withRouter from '@decorators/withRouter'
 import config from '../../config'
+
+import './search.scss'
+
+import header from '../../assets/header.png'
+import logo from '../../assets/logo.svg'
 
 interface media {
   media_id: number,
@@ -98,16 +104,17 @@ export class DataExplorer extends Component<any, any> {
     window.scrollTo(0, 0) // we just arrived, scroll to top before rendering
 
     // handling the dates but must ask first
-    // const endDate = Math.floor(new Date(2017, 0, 1).getTime()/1000.0)
-    // const startDate = Math.floor(new Date(2017, 11, 31).getTime()/1000.0)
+    const startDate = Math.floor(new Date(2018, 0, 1).getTime()/1000.0)
+    const endDate = Math.floor(new Date(2018, 6, 30).getTime()/1000.0)
 
-    this.setState({ query: { finicio: 1544025551, ffinal: 1544457551, limit: 20, pagenumber: 1 }})
+    this.setState({ query: { finicio: startDate, ffinal: endDate, limit: 20, pagenumber: 1 } })
 
     if (this.props.location.search) {
       const query = queryString.parse(this.props.location.search)
       if (query['pagenumber']) this.setState({ ...this.state, query: { ...this.state.query, pagenumber: Number.parseInt(query['pagenumber'] as string) } })
       if (query['text']) this.setState({ ...this.state, query: { ...this.state.query, text: query['text'] } })
       if (query['medio']) this.setState({ ...this.state, query: { ...this.state.query, medio: query['medio'] } })
+      if (query['category']) this.setState({ ...this.state, query: { ...this.state.query, category: query['category'] } })
     }
 
     this.fetchPosts(this.state.query)
@@ -124,7 +131,7 @@ export class DataExplorer extends Component<any, any> {
       // grab the parameters
       const query = queryString.parse(this.props.location.search)
       // set the parsed query to our state
-      if (query['pagenumber']) this.setState({ ...this.state, query: { ...this.state.query,pagenumber: Number.parseInt(query['pagenumber'] as string) } })
+      if (query['pagenumber']) this.setState({ ...this.state, query: { ...this.state.query, pagenumber: Number.parseInt(query['pagenumber'] as string) } })
 
       // refetch the data
       this.fetchPosts(this.state.query)
@@ -133,14 +140,20 @@ export class DataExplorer extends Component<any, any> {
 
   onSearch(txt: string) {
     if (!txt) delete this.state.query.text
-    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(txt && {text: txt}) } })
+    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(txt && { text: txt }) } })
     this.props.history.push({ pathname: '/datos', search: queryString.stringify(this.state.query) })
   }
 
   // mediaId is an array
   onMediaSet(mediaId) {
     if (mediaId.length == 0) delete this.state.query.medio
-    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(mediaId.length !== 0 && {medio: mediaId.join(',')}) } })
+    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(mediaId.length !== 0 && { medio: mediaId.join(',') }) } })
+    this.props.history.push({ pathname: '/datos', search: queryString.stringify(this.state.query) })
+  }
+
+  onCategorySet(categories) {
+    if (categories.length == 0) delete this.state.query.tema
+    this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ...(categories.length !== 0 && { tema: categories.join(',') }) } })
     this.props.history.push({ pathname: '/datos', search: queryString.stringify(this.state.query) })
   }
 
@@ -149,8 +162,8 @@ export class DataExplorer extends Component<any, any> {
     let ffinal = 1544457551
 
     if (years.length != 0) {
-      ffinal = Math.floor(new Date(Math.max(...years), 11, 31).getTime()/1000.0)
-      finicio = Math.floor(new Date(Math.min(...years), 0, 1).getTime()/1000.0)
+      ffinal = Math.floor(new Date(Math.max(...years), 11, 31).getTime() / 1000.0)
+      finicio = Math.floor(new Date(Math.min(...years), 0, 1).getTime() / 1000.0)
     }
 
     this.setState({ ...this.state, query: { ...this.state.query, pagenumber: 1, ffinal, finicio } })
@@ -159,11 +172,24 @@ export class DataExplorer extends Component<any, any> {
 
   render = () => (
     <div>
-      <BaseHeader minHeight={'100px'}/>
-      <Search onSearch={this.onSearch.bind(this)} currentSearch={this.state.query.text} />
-      <div style={{ display: 'flex', marginTop: '1rem', minHeight: '80vh', }}>
-        <Sidebar submitYears={this.onDateSet.bind(this)} submitMedia={this.onMediaSet.bind(this)} medias={this.state.medias} categories={this.state.categories} />
-        <PostList posts={this.state.posts} currentPage={this.state.currentPage} totalPages={this.state.totalPages} />
+      <div style="overflow: hidden;position: relative;height: 80px;">
+        <img src={header} style={{ position: 'absolute', width: '3000px', overflow: 'hidden', left: '-50px' }} />
+        <div className="navigation" style="align-items: center;">
+          <Link to={"/"}style={{ zIndex: 1, display: 'flex', margin: '10px 0', }}>
+            <img src={logo} style={{ width: '150px', height: '30px', }} alt=""/>
+          </Link>
+
+          <Link to={"/"} style={{ zIndex: 1, textDecoration: 'none', margin: '10px 0', border: '.15em solid white', borderRadius: '25px', height: '30px', }}>
+            <h2 style={{ color: 'white', margin: '0 .5em', fontSize: '1.2rem' }}>Iniciar Sesión</h2>
+          </Link>
+        </div>
+      </div>
+      <div style={{ background: '#fff',position: 'relative'  }}>
+        <Search onSearch={this.onSearch.bind(this)} currentSearch={this.state.query.text} />
+        <div style={{ display: 'flex', marginTop: '1rem', minHeight: '80vh', width: '100%' }}>
+          <Sidebar submitYears={this.onDateSet.bind(this)} submitCategory={this.onCategorySet.bind(this)} submitMedia={this.onMediaSet.bind(this)} medias={this.state.medias} categories={this.state.categories} />
+          <PostList posts={this.state.posts} currentPage={this.state.currentPage} totalPages={this.state.totalPages} />
+        </div>
       </div>
       <Footer />
     </div>

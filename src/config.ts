@@ -1,6 +1,6 @@
 const config = {
-  catalogsURL: 'http://tendencias.cenat.ac.cr:8081',
-  dataURL: 'http://tendencias.cenat.ac.cr:8082'
+  catalogsURL: 'https://tendencias.cenat.ac.cr/api/catalogo',
+  dataURL: 'https://tendencias.cenat.ac.cr/api/datos'
 }
 
 export default config

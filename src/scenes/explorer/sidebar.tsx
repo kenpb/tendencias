@@ -10,21 +10,17 @@ import dataApplyFilter from '../../assets/data-apply-filter.png'
 // }
 
 // TODO: dunno about this state handling
-export class Sidebar extends Component<{ submitYears: Function, submitMedia: Function, medias: Array<Object>, categories: Array<Object> }, any> {
+export class Sidebar extends Component<{ submitYears: Function, submitMedia: Function, submitCategory: Function, medias: Array<Object>, categories: Array<Object> }, any> {
 
   constructor() {
     super()
     // set initial time:
-    this.setState({ toggledMedias: false, toggledCategories: false, selectedMedias: [], selectedYears: [] })
+    this.setState({ toggledYears: false, toggledMedias: false, toggledCategories: false, selectedMedias: [], selectedYears: [], selectedCategories: [], })
     this.toggleMedias = this.toggleMedias.bind(this)
     this.toggleCategories = this.toggleCategories.bind(this)
     this.toggleYears = this.toggleYears.bind(this)
     this.setMedia = this.setMedia.bind(this)
   }
-
-  // state = {
-  //   toggledMedias: false
-  // }
 
   toggleMedias() {
     this.setState({ toggledMedias: !this.state.toggledMedias })
@@ -38,11 +34,11 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
     this.setState({ toggledYears: !this.state.toggledYears })
   }
 
-  setYear({ target: { checked } }: any, media) {
+  setYear({ target: { checked } }: any, year) {
     if (!checked)
-      this.setState({ selectedYears: this.state.selectedYears.filter(mediaId => mediaId !== media) })
+      this.setState({ selectedYears: this.state.selectedYears.filter(yearId => yearId !== year) })
     else
-      this.setState({ selectedYears: [...this.state.selectedYears, media] })
+      this.setState({ selectedYears: [...this.state.selectedYears, year] })
   }
 
   setMedia({ target: { checked } }: any, media) {
@@ -52,7 +48,14 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
       this.setState({ selectedMedias: [...this.state.selectedMedias, media] })
   }
 
-  render({ submitYears, submitMedia, medias, categories }) {
+  setCategory({ target: { checked } }: any, category) {
+    if (!checked)
+      this.setState({ selectedCategories: this.state.selectedCategories.filter(categoryId => categoryId !== category) })
+    else
+      this.setState({ selectedCategories: [...this.state.selectedCategories, category] })
+  }
+
+  render({ submitYears, submitMedia, submitCategory, medias, categories }) {
     if (!medias || !categories) return (<p>cargando...</p>)
 
     return (
@@ -66,7 +69,7 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
             <img src={dataLabelIcon} alt="" style={{ minWidth: '89px', paddingTop: '16px', position: 'absolute', left: 0, }} />
             <h2 style={{ display: 'block', verticalAlign: 'top', margin: 0, marginLeft: '60px', paddingTop: '.25em', fontWeight: 'bold', }}>Años</h2>
             <span style={{ padding: '1em', display: 'block',  }}>
-              { [2014, 2015, 2016, 2017, 2018].map(year =>
+              { [2018,2019].map(year =>
                   <label style={{ display: 'inline-block' }}>
                     <input onChange={e => this.setYear(e, year)} type="checkbox" style={{ marginRight: '.5rem' }} />
                     <h3 style={{ display: 'inline-block', margin: 0, }}>{year}</h3>
@@ -133,7 +136,7 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
               { categories.map(category => {
                   return (
                     <label style={{ display: 'inline-block' }}>
-                      <input type="checkbox" style={{ marginRight: '.5rem' }} />
+                      <input onChange={e => this.setCategory(e, category['category_name'].toLowerCase())} type="checkbox" style={{ marginRight: '.5rem' }} />
                       <h3 style={{ display: 'inline-block', margin: 0, }}>{category['category_name']}</h3>
                     </label>
                   )}
@@ -143,7 +146,7 @@ export class Sidebar extends Component<{ submitYears: Function, submitMedia: Fun
           </div>
 
           <div style={{ height: '56px', margin: '1em 0', }}>
-            <button style={{
+            <button onClick={e => submitCategory(this.state.selectedCategories)} style={{
               border: 'none',
               font: 'inherit',
               color: 'inherit',

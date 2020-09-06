@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 
 import { BaseHeader, Footer } from '../../components'
 
-import headerHero from '../../assets/home-hero.svg'
-import background from '../../assets/background.svg'
+import headerHero from '../../assets/home-hero.png'
 
-import hallazgosButton from  '../../assets/hallazgos-button.svg'
-import hallazgosAvatar from  '../../assets/hallazgos-avatar.svg'
+import hallazgosButton from '../../assets/hallazgos-button.svg'
+import hallazgosAvatar from '../../assets/hallazgos-avatar.svg'
 
 import visualizacionesAvatar from '../../assets/visualizaciones-avatar.svg'
 import visualizacionesButton from '../../assets/visualizaciones-button.svg'
@@ -28,77 +27,84 @@ export class Home extends Component<{}, {}> {
 
   render = () => (
     <div>
-      <BaseHeader backgroundUrl={headerHero}>
-        <div style={{ padding: '10em 10px 0 10px', margin: '0 auto', maxWidth: '1200px', }}>
-          <div style={{ maxWidth: '70%', }}>
-            <h2 style={{ fontWeight: 'normal', }}> Les damos la bienvenida a Tendencias, un espacio para observar las dinámicas de las personas alrededor de medios de comunicación en línea en Costa Rica.</h2>
-          </div>
-          {/* <h2 style={{ fontWeight: 'normal', }}> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam id nisi auctor, aliquam purus non, elementum odio. Praesent ullamcorper sapien et ante pretium vehicula. Pellentesque mollis nec eros sit amet bibendum. Suspendisse eget odio in lacus sodales mollis. Mauris dignissim scelerisque neque facilisis fringilla. Nam ipsum neque, consequat eu dolor vel, dignissim volutpat purus.</h2> */}
-        </div>
+      <BaseHeader class="header">
+
       </BaseHeader>
 
-      {/* findings section */}
-      <div class="findings-section">
-        <div style={{ padding: '0 10px', background: '#d7effc' }}>
-          <div class="findings-wrapper">
-            <div class="findings-content">
-              <Link to={'/graficos'}>
-                <img src={hallazgosButton} alt=""/>
-              </Link>
-              <h2 style={{ fontWeight: 'normal', float: 'left', }}>
-                Mostramos diversos hallazgos realizados por el grupo de investigación con el fin de aportar al conocimiento de esta área en el contexto costarricense.
-              </h2>
+      <div class="intro">
+        <div class="text-wrapper">
+          <h2 style={{ fontWeight: 'normal', }}>
+            Les damos la bienvenida a Tendencias, un espacio para observar las dinámicas de las personas alrededor de medios de comunicación en línea en Costa Rica.
+          </h2>
+        </div>
+      </div>
+
+      <div>
+        {/* findings section */}
+        {/* <div class="findings-section">
+          <div style={{ padding: '0 10px', background: '#d7effc' }}>
+            <div class="findings-wrapper">
+              <div class="findings-content">
+                <Link to={'/graficos'}>
+                  <img src={hallazgosButton} alt=""/>
+                </Link>
+                <h2 style={{ fontWeight: 'normal', float: 'left', }}>
+                  Mostramos diversos hallazgos realizados por el grupo de investigación con el fin de aportar al conocimiento de esta área en el contexto costarricense.
+                </h2>
+              </div>
+              <img src={hallazgosAvatar} alt="" style={{ height: '250px', }} />
             </div>
-            <img src={hallazgosAvatar} alt="" style={{ height: '250px', }} />
+          </div>
+        </div> */}
+
+        {/* data section */}
+        <div class="data-section">
+          <div style={{ background: '#d7effc', padding: '0 10px' }}>
+            <div class="data-wrapper">
+              <div class="data-content">
+                <Link to={'/datos'}>
+                  <img src={dataButton} alt="" />
+                </Link>
+                <h2 style={{ fontWeight: 'normal', }}>
+                  Brindamos acceso a los datos recopilados por el proyecto para incentivar nuevas iniciativas de investigación en el campo.
+                </h2>
+              </div>
+              <img src={dataAvatar} alt="" style={{ transform: 'scaleX(-1)', height: '250px', }} />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* graph section */}
-      <div style={{ padding: '0 10px' }}>
-        <div class="graph-section">
-          <img src={visualizacionesAvatar} style={{ transform: 'scaleX(-1)', height: '250px', }} alt=""/>
-          <div class="graph-content">
-            <Link to={'/graficos'} class="cta">
-              <img src={visualizacionesButton} alt=""/>
-            </Link>
-            <h2 style={{ fontWeight: 'normal', }}>
-              Presentamos de forma gráfica e interactiva las dinámicas en torno a los medios de comunicación en línea.
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      {/* data section */}
-      <div class="data-section">
-        <div style={{ background: '#d7effc', padding: '0 10px' }}>
-          <div class="data-wrapper">
-            <div class="data-content">
-              <Link to={'/datos'}>
-                <img src={dataButton} alt=""/>
+        {/* graph section */}
+        <div style={{ padding: '0 10px' }}>
+          <div class="graph-section">
+            <img src={visualizacionesAvatar} style={{ transform: 'scaleX(-1)', height: '250px', }} alt="" />
+            <div class="graph-content">
+              <Link to={'/graficos'} class="cta">
+                <img src={visualizacionesButton} alt="" />
               </Link>
               <h2 style={{ fontWeight: 'normal', }}>
-                Brindamos acceso a los datos recopilados por el proyecto para incentivar nuevas iniciativas de investigación en el campo.
+                Presentamos de forma gráfica e interactiva las dinámicas en torno a los medios de comunicación en línea.
               </h2>
             </div>
-            <img src={dataAvatar} alt="" style={{ transform: 'scaleX(-1)', height: '250px', }}/>
           </div>
         </div>
-      </div>
 
-      {/* resources section */}
-      <div style={{ padding: '0 10px' }}>
-        <div class="resources-section">
-          <img src={resourcesAvatar} alt="" style={{ height: '250px', }} />
-          <div class="resources-content">
-            <Link to={'/recursos'} class="cta">
-              <img src={resourcesButton} alt="" style={{ float: 'right', }}/>
-            </Link>
-            <h2 style={{ fontWeight: 'normal' }}>
-              Ofrecemos una serie de recursos educativos abiertos para que la ciudadanía se acerque a la temática y pueda conocer más al respecto del tema.
+
+
+        {/* resources section */}
+        {/* <div style={{ padding: '0 10px' }}>
+          <div class="resources-section">
+            <img src={resourcesAvatar} alt="" style={{ height: '250px', }} />
+            <div class="resources-content">
+              <Link to={'/recursos'} class="cta">
+                <img src={resourcesButton} alt="" style={{ float: 'right', }} />
+              </Link>
+              <h2 style={{ fontWeight: 'normal' }}>
+                Ofrecemos una serie de recursos educativos abiertos para que la ciudadanía se acerque a la temática y pueda conocer más al respecto del tema.
             </h2>
+            </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* footer section */}
