@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "d3": "^5.9.7",
+    "file-saver": "^2.0.2",
     "parcel-plugin-inliner": "^1.0.10",
     "preact": "8.3.1",
     "preact-compat": "3.18.4",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@types/d3": "^5.7.2",
+    "@types/file-saver": "^2.0.1",
     "@types/node": "^12.6.2",
     "autoprefixer": "^9.6.1",
     "cross-env": "5.2.0",

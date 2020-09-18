@@ -1,11 +1,13 @@
 import { h, Component } from 'preact'
 import { Link } from 'react-router-dom'
 
+import { saveAs } from 'file-saver'
+
 import { BaseHeader, Footer } from '../../components'
 import { Sidebar } from './sidebar'
 import { Search } from './search'
 import { PostList } from './postList'
-import { httpRequest } from '@decorators/httpRequest'
+import { httpRequest, querify } from '@decorators/httpRequest'
 // import { memoize } from '@decorators/memoize'
 
 import queryString from 'query-string'
@@ -98,16 +100,33 @@ export class DataExplorer extends Component<any, any> {
     })
   }
 
+  fetchCSVPosts() {
+    if (!this.state.canDownload) return
+
+    this.setState({ ...this.state, downloading: true }, async () => {
+      const fileResponse = await fetch(`${config.dataURL}/getPosts${querify(this.state.query)}`)
+      const blob = await fileResponse.blob()
+
+      saveAs(blob, 'resultados.csv')
+      this.setState({ ...this.state, downloading: false })
+    })
+  }
+
+  stateHasDownloadFlags() {
+    const { medio, tema } = this.state.query
+    this.setState({ ...this.state, canDownload: medio || tema })
+  }
+
   componentWillMount() {
     document.title = 'Tendencias | Explorar datos'
 
     window.scrollTo(0, 0) // we just arrived, scroll to top before rendering
 
     // handling the dates but must ask first
-    const startDate = Math.floor(new Date(2018, 0, 1).getTime()/1000.0)
-    const endDate = Math.floor(new Date(2018, 6, 30).getTime()/1000.0)
+    const startDate = Math.floor(new Date(2018, 0, 1).getTime() / 1000.0)
+    const endDate = Math.floor(new Date(2018, 6, 30).getTime() / 1000.0)
 
-    this.setState({ query: { finicio: startDate, ffinal: endDate, limit: 20, pagenumber: 1 } })
+    this.setState({ query: { finicio: startDate, ffinal: endDate, limit: 20, pagenumber: 1 }, canDownload: false, downloading: false })
 
     if (this.props.location.search) {
       const query = queryString.parse(this.props.location.search)
@@ -132,6 +151,9 @@ export class DataExplorer extends Component<any, any> {
       const query = queryString.parse(this.props.location.search)
       // set the parsed query to our state
       if (query['pagenumber']) this.setState({ ...this.state, query: { ...this.state.query, pagenumber: Number.parseInt(query['pagenumber'] as string) } })
+
+      // recompute the can download
+      this.stateHasDownloadFlags()
 
       // refetch the data
       this.fetchPosts(this.state.query)
@@ -170,13 +192,20 @@ export class DataExplorer extends Component<any, any> {
     this.props.history.push({ pathname: '/datos', search: queryString.stringify(this.state.query) })
   }
 
-  render = () => (
-    <div>
+  render = () => {
+    const downloadSection = <div style={{ display: 'flex', justifyContent: 'end', padding: '0 1.5rem', }}>
+      <button style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;cursor: pointer;"
+        disabled={this.state.downloading} onClick={this.fetchCSVPosts.bind(this)}>
+        {this.state.downloading ? 'Descargando...' : 'Descargar busqueda'}
+      </button>
+    </div>
+
+    return (<div>
       <div style="overflow: hidden;position: relative;height: 80px;">
         <img src={header} style={{ position: 'absolute', width: '3000px', overflow: 'hidden', left: '-50px' }} />
         <div className="navigation" style="align-items: center;">
-          <Link to={"/"}style={{ zIndex: 1, display: 'flex', margin: '10px 0', }}>
-            <img src={logo} style={{ width: '150px', height: '30px', }} alt=""/>
+          <Link to={"/"} style={{ zIndex: 1, display: 'flex', margin: '10px 0', }}>
+            <img src={logo} style={{ width: '150px', height: '30px', }} alt="" />
           </Link>
 
           <Link to={"/"} style={{ zIndex: 1, textDecoration: 'none', margin: '10px 0', border: '.15em solid white', borderRadius: '25px', height: '30px', }}>
@@ -184,14 +213,17 @@ export class DataExplorer extends Component<any, any> {
           </Link>
         </div>
       </div>
-      <div style={{ background: '#fff',position: 'relative'  }}>
+      <div style={{ background: '#fff', position: 'relative' }}>
         <Search onSearch={this.onSearch.bind(this)} currentSearch={this.state.query.text} />
         <div style={{ display: 'flex', marginTop: '1rem', minHeight: '80vh', width: '100%' }}>
           <Sidebar submitYears={this.onDateSet.bind(this)} submitCategory={this.onCategorySet.bind(this)} submitMedia={this.onMediaSet.bind(this)} medias={this.state.medias} categories={this.state.categories} />
-          <PostList posts={this.state.posts} currentPage={this.state.currentPage} totalPages={this.state.totalPages} />
+          <div style={{ width: 'calc(100% - 2rem)', display: 'flex', flexDirection: 'column', }}>
+            {this.state.posts && this.state.canDownload ? downloadSection : ''}
+            <PostList posts={this.state.posts} currentPage={this.state.currentPage} totalPages={this.state.totalPages} />
+          </div>
         </div>
       </div>
       <Footer />
-    </div>
-  )
+    </div>)
+  }
 }

@@ -16,7 +16,7 @@ export const httpRequest = (url: string) => {
   }
 }
 
-const querify = (parameters: Object) => {
+export const querify = (parameters: Object) => {
   let firstParameter = true
   return Object.keys(parameters).map(parameterKey => {
     let querySegment = ""
